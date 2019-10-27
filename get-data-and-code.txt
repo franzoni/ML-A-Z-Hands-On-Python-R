@@ -1,0 +1,5 @@
+Following this course:
+https://www.udemy.com/course/machinelearning
+
+Data can be downloaded here, chapter by chapter:
+https://www.superdatascience.com/pages/machine-learning
