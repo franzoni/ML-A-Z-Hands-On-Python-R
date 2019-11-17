@@ -1,0 +1,164 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Regression\n",
+    "\n",
+    "# Importing the libraries\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/markdown": [
+       "+ **Directory of this workbook**:"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Markdown object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\tpwd = /eos/home-f/franzoni/SWAN_projects/ML-A-Z-Hands-On-Python-R/Machine_Learning_A-Z_Template_Folder/Part_2_-_Regression/Section_6_-_Polynomial_Regression\n"
+     ]
+    },
+    {
+     "data": {
+      "text/markdown": [
+       "\n",
+       "  + **Full path of the data file**:"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Markdown object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\tdata_path = /eos/home-f/franzoni/SWAN_projects/ML-A-Z-Hands-On-Python-R/Machine_Learning_A-Z_Template_Folder/Part_2_-_Regression/Section_6_-_Polynomial_Regression/Polynomial_Regression/Position_Salaries.csv\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Importing the dataset\n",
+    "from IPython.display import Markdown, display\n",
+    "def printmd(string):\n",
+    "    display(Markdown(string))\n",
+    "\n",
+    "import sys, os\n",
+    "pwd = os.getcwd()\n",
+    "\n",
+    "printmd('+ **Directory of this workbook**:')\n",
+    "print '\\tpwd =', pwd\n",
+    "\n",
+    "data_path = pwd+'/Polynomial_Regression/Position_Salaries.csv'\n",
+    "printmd('\\n  + **Full path of the data file**:')\n",
+    "print '\\tdata_path =', data_path\n",
+    "\n",
+    "dataset = pd.read_csv(data_path)\n",
+    "# Importing the dataset\n",
+    "dataset = pd.read_csv(data_path)\n",
+    "X = dataset.iloc[:, 1:2].values\n",
+    "y = dataset.iloc[:, 2].values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Splitting the dataset into the Training set and Test set\n",
+    "\"\"\"from sklearn.cross_validation import train_test_split\n",
+    "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\"\"\"\n",
+    "\n",
+    "# Feature Scaling\n",
+    "\"\"\"from sklearn.preprocessing import StandardScaler\n",
+    "sc_X = StandardScaler()\n",
+    "X_train = sc_X.fit_transform(X_train)\n",
+    "X_test = sc_X.transform(X_test)\n",
+    "sc_y = StandardScaler()\n",
+    "y_train = sc_y.fit_transform(y_train)\"\"\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Fitting the Regression Model to the dataset\n",
+    "# Create your regressor here\n",
+    "\n",
+    "# Predicting a new result\n",
+    "y_pred = regressor.predict(6.5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Visualising the Regression results\n",
+    "plt.scatter(X, y, color = 'red')\n",
+    "plt.plot(X, regressor.predict(X), color = 'blue')\n",
+    "plt.title('Truth or Bluff (Regression Model)')\n",
+    "plt.xlabel('Position level')\n",
+    "plt.ylabel('Salary')\n",
+    "plt.show()\n",
+    "\n",
+    "# Visualising the Regression results (for higher resolution and smoother curve)\n",
+    "X_grid = np.arange(min(X), max(X), 0.1)\n",
+    "X_grid = X_grid.reshape((len(X_grid), 1))\n",
+    "plt.scatter(X, y, color = 'red')\n",
+    "plt.plot(X_grid, regressor.predict(X_grid), color = 'blue')\n",
+    "plt.title('Truth or Bluff (Regression Model)')\n",
+    "plt.xlabel('Position level')\n",
+    "plt.ylabel('Salary')\n",
+    "plt.show()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.16"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
